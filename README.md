@@ -127,7 +127,7 @@ The type of capture that will be performed by the camera - either a still image 
 
 #### `captureTarget`
 
-Values: `Camera.constants.CaptureTarget.cameraRoll` (default), `Camera.constants.CaptureTarget.disk`, ~~`Camera.constants.CaptureTarget.memory`~~ (deprecated), 
+Values: `Camera.constants.CaptureTarget.cameraRoll` (default), `Camera.constants.CaptureTarget.disk`, ~~`Camera.constants.CaptureTarget.memory`~~ (deprecated),
 
 This property allows you to specify the target output of the captured image data. By default the image binary is sent back as a base 64 encoded string. The disk output has been shown to improve capture response time, so that is the recommended value.
 
@@ -197,6 +197,7 @@ e: {
 }
 ```
 Will call when touch to focus has been made.
+By default, `onFocusChanged` is not defined and tap-to-focus is disabled.
 
 #### `defaultOnFocusComponent`
 
@@ -204,7 +205,9 @@ Values:
 `true` (default)
 `false`
 
-#### `onFocusChanged`
+If `defaultOnFocusComponent` set to false, default internal implementation of visual feedback for tap-to-focus gesture will be disabled.
+
+#### `onZoomChanged`
 
 Args:
 ```
@@ -215,6 +218,7 @@ Args:
   }
 ```
 Will call when focus has changed.
+By default, `onZoomChanged` is not defined and pinch-to-zoom is disabled.
 
 ## Component methods
 
@@ -233,6 +237,8 @@ Supported options:
    - `location` This is the object returned from `navigator.geolocation.getCurrentPosition()` (React Native's geolocation polyfill). It will add GPS metadata to the image.
  - `rotation` This will rotate the image by the number of degrees specified.
  
+=======
+
 #### `stopCapture()`
 
 Ends the current capture session for video captures. Only applies when the current `captureMode` is `video`.
