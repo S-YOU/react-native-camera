@@ -45,7 +45,7 @@ var Camera = React.createClass({
       PropTypes.string,
       PropTypes.number
     ]),
-    defaultTouchToFocus: PropTypes.bool,
+    defaultOnFocusComponent: PropTypes.bool,
     onFocusChanged: PropTypes.func,
     onZoomChanged: PropTypes.func
   },
